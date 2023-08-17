@@ -89,7 +89,7 @@ class Elementor_Form_Widget extends \Elementor\Widget_Base {
 		$form_send = "notsend";
 
 		?>
-        <div class="sata-forms-container">
+        <div class="sata-forms-container sata-forms-update-pre">
             <pre style="display: none;">
                 <?php
 				$data = array(

@@ -2,14 +2,14 @@ import React, {useState} from "react"
 import ReactDOM from "react-dom"
 import Input from "./components/Input.jsx"
 
-const divsToUpdate = document.querySelectorAll(".boilerplate-update-me")
+const divsToUpdate = document.querySelectorAll(".sata-forms-update-pre")
 
 divsToUpdate.forEach(div => {
     const data = JSON.parse(div.querySelector("pre").innerText)
     ReactDOM.render(<OurComponent {...data}/>, div)
     div
         .classList
-        .remove("boilerplate-update-me")
+        .remove("sata-forms-update-pre")
 })
 
 function OurComponent(props) {

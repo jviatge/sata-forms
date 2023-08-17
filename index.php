@@ -124,7 +124,7 @@ class template {
 
     //print_r($attributes); 
     ob_start(); ?>
-    <div class="sata-forms-container">
+    <div class="sata-forms-container sata-forms-update-pre">
       <pre style="display: none;">
         <?php
 				$data = array(
