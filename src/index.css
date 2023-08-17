@@ -5,16 +5,16 @@
 
   /* on form element last child of input is hidden */
   input[type="date"]::-webkit-calendar-picker-indicator {
-    background: transparent;
-    bottom: 0;
-    color: transparent;
-    cursor: pointer;
-    height: auto;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: auto;
+    background: transparent !important;
+    bottom: 0 !important;
+    color: transparent !important;
+    cursor: pointer !important;
+    height: auto !important;
+    left: 0 !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: auto !important;
   }
 
   .field-container .input-form:last-of-type {

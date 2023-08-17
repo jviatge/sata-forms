@@ -70,24 +70,24 @@ function OurComponent(props) {
             placeholder: "Destination",
             required: true
         }, {
-            name: "departure_date",
-            width: "1/3",
-            type: "date",
-            placeholder: "Date de départ",
-            required: true
-        }, {
             name: "number_of_participants",
-            width: "1/3",
+            width: "1/2",
             type: "number",
             placeholder: "Nombre de participants",
             required: true
         }, {
             name: "budget",
-            width: "1/3",
+            width: "1/2",
             type: "number",
             placeholder: "Budget par participant (€)",
             required: true
         }, {
+            name: "departure_date",
+            width: "1/2",
+            type: "date",
+            placeholder: "Date de départ",
+            required: true
+        },{
             name: "number_of_night",
             width: "1/2",
             type: "number",
