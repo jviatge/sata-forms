@@ -52,19 +52,16 @@ class template {
     
     if ( isset( $_POST['cf-submitted'] ) ) {
 
-      // DO SOMETHING WITH THE DATA
-      //$url = 'http://192.168.0.159:4000/api/v1/users';
-      //$url = 'http://192.168.1.100:4000/api/v1/users';
       $honeyPot = $_POST['age'];
       if ($honeyPot != "") {
         wp_redirect( home_url($_SERVER['REQUEST_URI']) . '&form_send=0' );
         exit();
       }
 
-      $confCrypt = explode(" ", $_POST['conf-key']);
+      $confCrypt = explode("-", $_POST['conf-key']);
 
-      $url = $this->encrypt_decrypt("decrypt",$confCrypt[0],"qsppiUO545sfq964klcxsH");
-      $tokenAuth = $this->encrypt_decrypt("decrypt",$confCrypt[1],"qsppiUO545sfq964klcxsH");
+      $url = $this->encrypt_decrypt("decrypt",$confCrypt[1],"qsppiUO545sfq964klcxsH");
+      $tokenAuth = $this->encrypt_decrypt("decrypt",$confCrypt[0],"qsppiUO545sfq964klcxsH");
 
       $data = [
         'origin' => "groupes",
@@ -79,11 +76,9 @@ class template {
         'departure_date' => date('Y-m-d H:i:s',strtotime(sanitize_text_field($_POST['departure_date']))),
         'number_of_participants' => sanitize_text_field($_POST['number_of_participants']),
         'budget'  => sanitize_text_field($_POST['budget']),
-        'number_of_night' => sanitize_text_field($_POST['number_of_night']),
+        'number_of_nights' => sanitize_text_field($_POST['number_of_night']),
         'comments' => sanitize_text_field($_POST['comments']),
       ];
-
-      print_r($data);
 
       $response = wp_remote_post($url, array(
         'method'  => 'POST',

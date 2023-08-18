@@ -52,7 +52,7 @@ function EditComponent(props) {
         </div>
 
         <div className="flex flex-col">
-          <label>Base endpoint</label>
+          <label>Bearer Token</label>
           <input 
             className="mr-3 p-2" 
             type="text" 
