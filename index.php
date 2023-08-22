@@ -96,7 +96,8 @@ class template {
       // REDIRECT TO SAME PAGE WITH SUCCESS MESSAGE
       ob_get_clean();
       
-      wp_redirect( home_url($_SERVER['REQUEST_URI']) . '&form_send=' . $form_succes_send );
+      wp_redirect("https://groupes.vtr-voyages.fr/devis-groupes/demande-envoyee/");
+      //wp_redirect( home_url($_SERVER['REQUEST_URI']) . '&form_send=' . $form_succes_send );
       exit();
     }
 
