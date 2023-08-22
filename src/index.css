@@ -17,7 +17,7 @@
     width: auto !important;
   }
 
-  .field-container .input-form:last-of-type {
+  section div:last-of-type {
     display: none !important;
   }
   
@@ -31,4 +31,3 @@
     }
   }
 }
-

@@ -110,7 +110,7 @@ function OurComponent(props) {
         <div className="sata-forms-container">
             <form method="post" action={currentUrl} className="p-4 my-3 sata-form">
                 <h2 className="px-2 text-2xl font-bold mb-8">{props.title}</h2>
-                <div className="flex w-full flex-wrap content-center mb-4 field-container">
+                <section className="flex w-full flex-wrap content-center mb-4 field-container">
 
                     {props.form_send === "success"
                         ? (
@@ -143,6 +143,11 @@ function OurComponent(props) {
                     {props.form_send === "notsend"
                         ? (
                             <> 
+                                 <input
+                                    type="hidden"
+                                    name="conf-key"
+                                    value={`${props.token_auth}-${props.api_url}`}/>
+
                                 {forms.map((form) => (
                                     <Input
                                         title={form.title}
@@ -162,22 +167,17 @@ function OurComponent(props) {
                                     type={"text"}
                                     placeholder={"Quel est votre âge ?"}
                                     width={"w-full"} /> 
-                                
-                                <input
-                                    type="hidden"
-                                    name="conf-key"
-                                    value={`${props.token_auth}-${props.api_url}`}/>
 
-                                <div className="w-full px-2 mt-4">
+                                <section className="w-full px-2 mt-4">
                                     <button
                                         type="submit"
                                         name="cf-submitted"
                                         class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Envoyer</button>
-                                </div>
+                                </section>
                             </>
                         )
                         : null
-                    }</div>
+                    }</section>
 
             </form>
         </div>

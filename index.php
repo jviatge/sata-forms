@@ -54,7 +54,7 @@ class template {
 
       $honeyPot = $_POST['age'];
       if ($honeyPot != "") {
-        wp_redirect( home_url($_SERVER['REQUEST_URI']) . '&form_send=0' );
+        wp_redirect(home_url($_SERVER['REQUEST_URI']));
         exit();
       }
 
@@ -79,6 +79,12 @@ class template {
         'number_of_nights' => sanitize_text_field($_POST['number_of_night']),
         'comments' => sanitize_text_field($_POST['comments']),
       ];
+      // echo "==============================";
+      // echo $url;
+      // echo "==============================";
+      // echo $tokenAuth;
+      // echo "==============================";
+      // print_r($data);
 
       $response = wp_remote_post($url, array(
         'method'  => 'POST',
@@ -88,16 +94,17 @@ class template {
             'Authorization' => 'Basic ' . $tokenAuth,
         ),
       ));
+      //echo "==============================";
+      //print_r($response);
 
-      if (!$response) {
-        $form_succes_send = false;
-      };
-      
-      // REDIRECT TO SAME PAGE WITH SUCCESS MESSAGE
       ob_get_clean();
+     
+      if ($response["response"]["code"] == 201) {
+        wp_redirect("https://groupes.vtr-voyages.fr/devis-groupes/demande-envoyee/");
+      } else {
+        wp_redirect( home_url($_SERVER['REQUEST_URI']) . '&form_send=error');
+      }
       
-      wp_redirect("https://groupes.vtr-voyages.fr/devis-groupes/demande-envoyee/");
-      //wp_redirect( home_url($_SERVER['REQUEST_URI']) . '&form_send=' . $form_succes_send );
       exit();
     }
 
