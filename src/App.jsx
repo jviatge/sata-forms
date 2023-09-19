@@ -1,6 +1,7 @@
-import React, {useState} from "react"
+import React, {useState,useRef} from "react"
 import ReactDOM from "react-dom"
 import Input from "./components/Input.jsx"
+import { Loading } from "./components/loading.jsx"
 
 const divsToUpdate = document.querySelectorAll(".sata-forms-update-pre")
 
@@ -105,12 +106,23 @@ function OurComponent(props) {
     ]
 
     const currentUrl = window.location.href;
+    OurComponent
+    OurComponent
+    const [onLoading, setOnLoading] = useState(false);
+    const refForm = useRef()
 
     return (
         <div className="sata-forms-container">
-            <form method="post" action={currentUrl} className="p-4 my-3 sata-form">
+            <form 
+                method="post" 
+                action={currentUrl} 
+                className="p-4 my-3 sata-form" 
+                onSubmit={(e) => {
+                    setOnLoading(true)
+                }}
+                ref={refForm} >
                 <h2 className="px-2 text-2xl font-bold mb-8">{props.title}</h2>
-                <section className="flex w-full flex-wrap content-center mb-4 field-container">
+                <section className="flex w-full flex-wrap content-center mb-4 field-container form-fields">
 
                     {props.form_send === "success"
                         ? (
@@ -168,11 +180,14 @@ function OurComponent(props) {
                                     placeholder={"Quel est votre âge ?"}
                                     width={"w-full"} /> 
 
-                                <section className="w-full px-2 mt-4">
+                                <section className="w-full px-2 mt-4 flex">
                                     <button
+                                        disabled={onLoading}
                                         type="submit"
                                         name="cf-submitted"
-                                        class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Envoyer</button>
+                                        className="bg-blue-500 hover:bg-blue-700 text-white rounded focus:outline-none focus:shadow-outline flex justify-center items-center">
+                                            {onLoading ? <Loading className={"h-10 w-14 mx-4"} /> : <span className="my-2 mx-4 text-base">Envoyer</span>}
+                                    </button>
                                 </section>
                             </>
                         )

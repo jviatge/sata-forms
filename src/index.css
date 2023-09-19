@@ -17,7 +17,11 @@
     width: auto !important;
   }
 
-  section div:last-of-type {
+  /* section div .blockShow {
+    display: block !important;
+   } */
+
+  .form-fields div:last-of-type {
     display: none !important;
   }
   

@@ -21,13 +21,23 @@ export default function Input({name,placeholder,type,required,label,width,title}
             required={required}
             className={imputClass}>
           </textarea> : null}
-        {type !== 'textarea' && type !== 'select' ? (
+        {type !== 'textarea' && type !== 'select'  && type !== 'number' ? (
           <input 
             ref={ref}
             onFocus={() => {if(type === 'date') ref.current.type = "date"}}
             onChange={(e) => {if(type === 'date' && !e.target.value) ref.current.type = "text"}}
             onfocus={type === 'date' && "(this.type='date')"}
             type={type === 'date' ? "text" : type }
+            name={name} 
+            placeholder={placeholder + (required ? "*" : "")} 
+            required={required} 
+            className={imputClass} />
+        ) : null}
+        {type === 'number' ? (
+          <input 
+            ref={ref}
+            min={0}
+            type={"number"}
             name={name} 
             placeholder={placeholder + (required ? "*" : "")} 
             required={required} 
