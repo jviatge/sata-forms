@@ -91,7 +91,7 @@ class template {
         'body'    => wp_json_encode($data),
         'headers' => array(
             'Content-Type' => 'application/json',
-            'Authorization' => 'Basic ' . $tokenAuth,
+            'Authorization' => 'Bearer ' . $tokenAuth,
         ),
       ));
       //echo "==============================";
