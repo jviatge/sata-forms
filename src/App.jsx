@@ -108,7 +108,7 @@ function OurComponent(props) {
     const currentUrl = window.location.href;
     OurComponent
     OurComponent
-    const [onLoading, setOnLoading] = useState(false);
+    /* const [onLoading, setOnLoading] = useState(false); */
     const refForm = useRef()
 
     return (
@@ -117,9 +117,9 @@ function OurComponent(props) {
                 method="post" 
                 action={currentUrl} 
                 className="p-4 my-3 sata-form" 
-                onSubmit={(e) => {
+               /*  onSubmit={(e) => {
                     setOnLoading(true)
-                }}
+                }} */
                 ref={refForm} >
                 <h2 className="px-2 text-2xl font-bold mb-8">{props.title}</h2>
                 <section className="flex w-full flex-wrap content-center mb-4 field-container form-fields">
@@ -182,11 +182,12 @@ function OurComponent(props) {
 
                                 <section className="w-full px-2 mt-4 flex">
                                     <button
-                                        disabled={onLoading}
+                                        /* disabled={onLoading} */
                                         type="submit"
                                         name="cf-submitted"
                                         className="bg-blue-500 hover:bg-blue-700 text-white rounded focus:outline-none focus:shadow-outline flex justify-center items-center">
-                                            {onLoading ? <Loading className={"h-10 w-14 mx-4"} /> : <span className="my-2 mx-4 text-base">Envoyer</span>}
+                                            {/* {onLoading ? <Loading className={"h-10 w-14 mx-4"} /> : <span className="my-2 mx-4 text-base">Envoyer</span>} */}
+                                            <span className="my-2 mx-4 text-base">Envoyer</span>
                                     </button>
                                 </section>
                             </>
